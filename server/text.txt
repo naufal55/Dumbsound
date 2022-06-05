@@ -1,0 +1,32 @@
+#init sequelize
+npx sequelize-cli init
+
+# Create database
+1. ubah nama databse di config
+2. ketik dobawah ini maka otomatis kebuat database
+npx sequelize db:create
+
+
+# Create Tabel
+
+#table parent(yg tdk ada foreign key nya)
+npx sequelize-cli model:generate --name artist --attributes name:string,old:integer,solo:string,startCareer:integer
+npx sequelize-cli model:generate --name user --attributes email:string,password:string,fullname:string,gender:string,phone:integer,address:text
+#table children(table yang ada foreign key nya)
+npx sequelize-cli model:generate --name transaction --attributes bukti:string,remaining:integer,userStatus:string,paymentStatus:string,idUser:integer
+npx sequelize-cli model:generate --name music --attributes title:string,song:string,year:integer,filesong:string,idArtist:integer
+
+
+#kemudian deklarasikan relasi refrence antar tabel dahulu sebelum migrating
+
+# Migratiing database
+npx sequelize db:migrate    
+
+baru menambhkan assoiciatoin antar tabel
+
+##WARNINGG!!!
+untuk generate table bagi untuk tabel parent harus didklarasikan terlebih dahulu(tabel yang tdk ada foreign key dan dijadikan acuan).... ini pentingg
+baru kemudian generate table children yang punya foreign key didalamnya 
+
+karena apabila tabel parent blum di generate maka tabel yg ada foreign key tidak bisa di relasikan !!!!!!!!!!!!!
+
