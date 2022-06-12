@@ -8,7 +8,7 @@ import {
   MainNavbarAdmin,
   Register,
 } from "../components";
-import musicList from "../seeders/musicList";
+// import musicList from "../seeders/musicList";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "../assets/css/custom.css";
