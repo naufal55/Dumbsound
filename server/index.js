@@ -22,7 +22,7 @@ const router =  require("./src/routes")
 
 // require('./src/socket')(io) // same with const socketIo=require(./src/...)
 
-const port = 5000
+const port = process.env.PORT || 5000;
 
 //require socket
 
